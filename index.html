@@ -210,13 +210,21 @@
             fetch(webAppUrl)
                 .then(response => response.json())
                 .then(data => {
-                    // Update the webpage text with the real live count number
-                    document.getElementById("house-counter").innerHTML = 
-                        "🏡 " + data.count + " Houses Registered to Hand Out Candy!";
+                    // Force the incoming data to be rendered strictly as a baseline math number
+                    const trueCount = Number(data.count);
+
+                    // Finds ALL instances of elements with class="house-counter" and updates them loops
+                    const counters = document.querySelectorAll(".house-counter");
+                    counters.forEach(counter => {
+                        counter.innerHTML = "🏡 " + trueCount + " Houses Registered to Hand Out Candy!";
+                    });
                 })
                 .catch(error => {
                     console.error("Error fetching data:", error);
-                    document.getElementById("house-counter").innerHTML = "🏡 Map Updated Daily!";
+                    const counters = document.querySelectorAll(".house-counter");
+                    counters.forEach(counter => {
+                        counter.innerHTML = "🏡 Map Updated Daily!";
+                    });
                 });
         }
 
