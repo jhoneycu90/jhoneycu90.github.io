@@ -126,6 +126,20 @@
             transform: translateY(-2px); 
             box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
         }
+        
+        /* Styles for the live house counter */
+        #house-counter {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-top: 10px;
+            background-color: rgba(0, 0, 0, 0.2); /* Soft dark capsule background */
+            padding: 8px 25px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -145,6 +159,9 @@
 
     <!-- FIXED: Styled this header to look premium and match the page theme -->
     <h1 class="map-title">Trick-or-Treating Map</h1>
+
+    <!-- Live dynamic counter container -->
+    <div id="house-counter">Loading registered houses...</div>
     
     <div class="map-container">
         <iframe src="https://www.google.com/maps/d/embed?mid=1TjX-WCroFoATlbxqaEdNxPrZvrtLS0k&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
@@ -184,6 +201,27 @@
                 document.getElementById("countdown").innerHTML = "🎃 HAPPY HALLOWEEN! 🎃";
             }
         }, 1000);
+        
+        // 🚀 LIVE HOUSE COUNTER FETCH ENGINE
+        // Paste your exact Google Web App URL between the quotes below:
+        const webAppUrl = "https://script.google.com/macros/s/AKfycbyePRj2Wrve_S_bi8gp00PcsbIL-MVNAbNP6rtZBNFY06FQ0lcUAuWebNcJq-mgECD1kQ/exec";
+
+        function fetchHouseCount() {
+            fetch(webAppUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Update the webpage text with the real live count number
+                    document.getElementById("house-counter").innerHTML = 
+                        "🏡 " + data.count + " Houses Registered to Hand Out Candy!";
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                    document.getElementById("house-counter").innerHTML = "🏡 Map Updated Daily!";
+                });
+        }
+
+        // Run the fetch once when the page finishes loading
+        fetchHouseCount();
     </script>
 
 </body>
