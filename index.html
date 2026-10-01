@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Holiday Hill Estates</title>
+    
+    <!-- 1. FIXED: Corrected Google Font Links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Styles the entire page background */
+        body {
+            background-color: #FF7518; /* Pumpkin Orange */
+            margin: 0;
+            padding: 0 0 60px 0; /* Leaves breathing room at the bottom of the page */
+            font-family: Arial, sans-serif; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh; /* FIXED: Changed from height to min-height to allow scrolling */
+            min-width: 660px; /* Enforces room for the 640px map + padding */
+        }
+
+        /* Styles the centered banner container */
+        .banner {
+            /* position: fixed; */ 
+            top: 20px; 
+            left: 50%; 
+            /* transform: translateX(-50%); */ 
+            z-index: 1000;
+            width: max-content;
+            text-align: center;
+            
+            /* FIXED: Changed invalid HTML comments to proper CSS comments */
+            /* background-color: rgba(255, 255, 255, 0.60); */
+            color: #000000; 
+            padding: 10px 20px; 
+            /* border-radius: 15px; */
+            /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+        }
+
+        /* Styles the specific heading text */
+        .banner h1 {
+            margin: 0; 
+            font-family: 'Cinzel', serif; 
+            font-weight: 700; 
+            font-size: 2.4rem;
+            letter-spacing: 4px; 
+        }
+        
+        /* Styles for the countdown text */
+        #countdown {
+            margin-top: 140px; /* Gives space so it doesn't hide behind the floating banner */
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ffffff; 
+            padding: 10px 40px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* FIXED: Removed space between 8 and px */
+            text-align: center;
+        }
+
+        /* NEW: Styles for your introductory paragraph text */
+        .intro-text {
+            color: white;
+            font-size: 1.2rem;
+            max-width: 640px;
+            text-align: center;
+            line-height: 1.6;
+            margin: 20px 0;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* NEW: Styles the heading directly above the map */
+        .map-title {
+            color: white;
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            margin: 20px 0 10px 0;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Optional: Styles to make the map look nice on your page */
+        .map-container {
+            border: 4px solid white;
+            border-radius: 15px;
+            overflow: hidden; 
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px; /* Gives space before the buttons */
+            width: 640px;
+            height: 480px;
+        }
+        
+        .map-container iframe {
+            border: none;
+        }
+
+        /* Container that aligns buttons horizontally and matches the map width */
+        .button-row {
+            display: flex;
+            gap: 20px; 
+            width: 648px; /* Map width + borders */
+            box-sizing: border-box;
+        }
+
+        /* Shared styling for both buttons */
+        .action-btn {
+            flex: 1; 
+            background-color: rgba(255, 255, 255, 0.75); 
+            color: #000000; 
+            border: none;
+            padding: 15px 0;
+            font-family: 'Cinzel', serif; 
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease; 
+        }
+
+        .action-btn:hover {
+            background-color: rgba(255, 255, 255, 0.95);
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- The floating banner -->
+    <div class="banner">
+        <h1>HOLIDAY HILL ESTATES</h1>
+    </div>
+
+    <!-- The countdown timer -->
+    <div id="countdown">Loading countdown...</div>
+
+    <!-- FIXED: Removed duplicate internal body tags and styled text cleanly -->
+    <div class="intro-text">
+        It's that time of year! Please join us in registering your home as a Trick-or-Treating destination for the neighborhood. Trick-or-Treaters can vote on their favorite house!
+    </div>
+
+    <!-- FIXED: Styled this header to look premium and match the page theme -->
+    <h1 class="map-title">Trick-or-Treating Map</h1>
+    
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/d/embed?mid=1TjX-WCroFoATlbxqaEdNxPrZvrtLS0k&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+    </div>
+    
+    <!-- Horizontal Button Row -->
+    <div class="button-row">
+        <!-- FIXED: Register button now securely links to your live Google Form in a new tab -->
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfFgK7tJfKNhWqZXcqbEKL16_7cnH1pvAiLvNuuG3DuiRl1QQ/viewform" target="_blank" class="action-btn" style="text-decoration: none; text-align: center;">Register</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeYuKGwi1WGYr1GxCZZwjh2Ob4I7gsHjr8Gt1ZF4XQFyp95iQ/viewform?embedded=true" target="_blank" class="action-btn" style="text-decoration: none; text-align: center;">Vote</a>
+    </div>
+    
+    <!-- JAVASCRIPT CODE -->
+    <script>
+        const currentYear = new Date().getFullYear();
+        let halloweenDate = new Date(`Oct 31, ${currentYear} 00:00:00`).getTime();
+        const nowCheck = new Date().getTime();
+
+        if (nowCheck > halloweenDate) {
+            halloweenDate = new Date(`Oct 31, ${currentYear + 1} 00:00:00`).getTime();
+        }
+
+        const timerInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = halloweenDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = 
+                days + "d " + hours + "h " + minutes + "m " + seconds + "s until Halloween!";
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                document.getElementById("countdown").innerHTML = "🎃 HAPPY HALLOWEEN! 🎃";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
