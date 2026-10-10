@@ -63,7 +63,7 @@
             line-height: 1.3;
         }
 
-        /* Card Container (Google Forms Style) */
+        /* Card Container */
         .card {
             background: #ffffff;
             border-radius: 16px;
@@ -72,12 +72,16 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .intro-text {
-            font-size: 1.25rem;
+        .card p {
+            font-size: 1.15rem;
             line-height: 1.6;
             text-align: center;
             color: #3c4043;
-            margin: 0;
+            margin: 0 0 12px 0;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
         }
 
         /* Section Headings */
@@ -91,8 +95,9 @@
             text-align: center;
         }
 
-        /* Live House Counter Capsule */
-        .house-counter {
+        /* Live House & Treater Counter Capsules */
+        .house-counter,
+        .treater-counter {
             font-size: clamp(1.25rem, 4vw, 1.6rem);
             font-weight: 700;
             color: #ffffff;
@@ -156,46 +161,62 @@
             border: none;
         }
 
-        /* Action Buttons Row */
+        /* Action Buttons Grid Layout */
+        .button-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+
         .button-row {
             display: flex;
-            flex-direction: row;
-            gap: 15px; 
+            gap: 12px;
             width: 100%;
         }
 
         .action-btn {
-            flex: 1; 
-            background-color: #ffffff; 
-            color: #d95100; 
-            border: 2px solid #ffffff;
-            padding: 18px 0;
-            font-family: 'Cinzel', serif; 
-            font-size: 1.3rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 12px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            transition: all 0.2s ease; 
-            text-decoration: none;
+            flex: 1;
             text-align: center;
+            background-color: #6b21a8; /* Deep Purple */
+            color: #ffffff;
+            padding: 14px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .action-btn:hover {
-            background-color: #fff3eb;
-            transform: translateY(-2px); 
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+            background-color: #8b5cf6; /* Lighter Purple */
+            box-shadow: 0 8px 20px rgba(107, 33, 168, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Afterparty Footer Counter */
+        .footer-counter {
+            font-size: clamp(1rem, 3.5vw, 1.3rem);
+            font-weight: 700;
+            color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.35);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            width: 100%;
+            margin: 0;
         }
 
         /* Mobile Adjustments */
         @media (max-width: 500px) {
             .button-row {
                 flex-direction: column;
-            }
-            .action-btn {
-                width: 100%;
             }
             .map-container {
                 height: 380px;
@@ -211,17 +232,36 @@
             <h1>HOLIDAY HILL ESTATES</h1>
         </div>
 
+        <h2 class="section-title">Trick-or-Treating Trail Map<br>With<br>Witches & Wieners Afterparty</h2>
+
         <div id="countdown">Loading countdown...</div>
-
+        
         <div class="card">
-            <p class="intro-text">
-                It's that time of year! Please join us in registering your home as a Trick-or-Treating destination for the neighborhood. Trick-or-Treaters can vote on their favorite house!
-            </p>
+            <p>Join the neighborhood trail! Register your house to hand out candy and compete for votes, or sign up to trick-or-treat.</p>
+            <p>Stick around for our outdoor movie night featuring <strong>HOCUS POCUS</strong> at 7:30 PM (1309 NW 14th St). Hot dogs and soft drinks provided—bring your own chairs!</p>
         </div>
-
-        <h2 class="section-title">Trick-or-Treating Map</h2>
-
+        
+        <div class="button-grid">
+            <div class="button-row">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfFgK7tJfKNhWqZXcqbEKL16_7cnH1pvAiLvNuuG3DuiRl1QQ/viewform" class="action-btn">Register Your Home</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeYuKGwi1WGYr1GxCZZwjh2Ob4I7gsHjr8Gt1ZF4XQFyp95iQ/viewform?usp=dialog" class="action-btn">Vote For Houses</a>
+            </div>
+            <div class="button-row">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSemWKursYwTXQ2jULtkpwhZnmL9mR1XUAoHm44AgIHgnRYorA/viewform" class="action-btn">Trick-or-Treaters Sign-Up</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScEH7A9OQVos1o8a6kTjMOoBVvwXrTexdGST5jbEX-faQvKLA/viewform?usp=publish-editor" class="action-btn">Afterparty Sign-Up</a>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Trick-or-Treating Trail Map</h2>
+        
         <h2 class="house-counter">Loading registered houses...</h2>
+        
+        <!-- Fixed ID to match JS target: treaters-count-element -->
+        <h2 id="treaters-count-element" class="treater-counter">Loading registered treaters...</h2>
+        
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/d/embed?mid=1TjX-WCroFoATlbxqaEdNxPrZvrtLS0k&ehbc=2E312F&noprof=1"></iframe>
+        </div>
 
         <div class="results-card">
             <h3>🏆 Current Voting Leaders</h3>
@@ -229,20 +269,16 @@
             <div id="second-place" class="leader-item second">🥈 Loading second place...</div>
             <div id="third-place" class="leader-item third">🥉 Loading third place...</div>
         </div>
-        
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/d/embed?mid=1TjX-WCroFoATlbxqaEdNxPrZvrtLS0k&ehbc=2E312F&noprof=1"></iframe>
-        </div>
-        
-        <div class="button-row">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfFgK7tJfKNhWqZXcqbEKL16_7cnH1pvAiLvNuuG3DuiRl1QQ/viewform" target="_blank" class="action-btn">Register</a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeYuKGwi1WGYr1GxCZZwjh2Ob4I7gsHjr8Gt1ZF4XQFyp95iQ/viewform?embedded=true" target="_blank" class="action-btn">Vote</a>
+
+        <!-- Added Afterparty Count element at the very bottom -->
+        <div id="afterparty-count" class="footer-counter">
+            🌭 Afterparty Sign-Ups: Loading...
         </div>
 
     </div>
 
     <script>
-        // Countdown Logic
+        // Countdown Logic with Pumpkin Icon
         const currentYear = new Date().getFullYear();
         let halloweenDate = new Date(`Oct 31, ${currentYear} 00:00:00`).getTime();
         const nowCheck = new Date().getTime();
@@ -261,7 +297,7 @@
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             document.getElementById("countdown").innerHTML = 
-                days + "d " + hours + "h " + minutes + "m " + seconds + "s until Halloween!";
+                days + "d " + hours + "h " + minutes + "m " + seconds + "s until Hall<span style='display: inline-block; transform: translateY(2px);'>🎃</span>een!";
 
             if (distance < 0) {
                 clearInterval(timerInterval);
@@ -279,6 +315,14 @@
                     document.querySelectorAll(".house-counter").forEach(counter => {
                         counter.innerHTML = `🏡 ${data.housesCount} Houses Registered to Hand Out Candy!`;
                     });
+					
+					// Handle treatersCount (whether it's an array or a direct number)
+					let treaters = Array.isArray(data.treatersCount) ? data.treatersCount[0] : data.treatersCount;
+					document.getElementById('treaters-count-element').innerText = `👻 ${treaters} Trick-or-Treaters Registered!`;
+
+					// Handle afterpartyCount at the bottom
+					let afterparty = Array.isArray(data.afterpartyCount) ? data.afterpartyCount[0] : data.afterpartyCount;
+					document.getElementById('afterparty-count').innerText = `🌭 Afterparty Sign-Ups: ${afterparty}`;
 
                     if (data.ballotsCount) {
                         const { first_place, second_place, third_place } = data.ballotsCount;
